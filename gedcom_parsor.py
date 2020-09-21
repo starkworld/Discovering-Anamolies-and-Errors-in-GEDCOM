@@ -68,7 +68,6 @@ def check_item(line_lst):
 
 def to_str(lst):
     """Method that returns list of given line of file"""
-    string = str()
     try:
         string = lst[0] + lst[1] + lst[2]
     except IndexError:
