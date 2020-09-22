@@ -37,6 +37,24 @@ During this sprint I have got to know some user stories they are:
 #### StoryDescription: Birth should occur before marriage of an individual
 
 Apart of this here I displayed data of an each individual and families in pretty tables
-![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/Screen%20Shot%202020-09-20%20at%2010.59.12%20PM.png)
+![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Screen%20Shot%202020-09-20%20at%2010.59.12%20PM.png)
 
-![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/Screen%20Shot%202020-09-20%20at%2010.59.28%20PM.png)
+![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Screen%20Shot%202020-09-20%20at%2010.59.28%20PM.png)
+
+### Planning Sprint 1:
+##### User Stories to Achieve during sprint 1 showned below:
+##### This describe there are 16 user stories to achieve during sprint one and it will take time to do so. 
+![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Screen%20Shot%202020-09-22%20at%203.02.29%20AM.png)
+
+#### Burndown Chart for the project
+##### The burndown is a chart that shows how quickly you and your team are burning through your customer's user stories. It shows the total effort against the amount of work we deliver each iteration
+![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Screen%20Shot%202020-09-22%20at%203.06.39%20AM.png)
+##### We can see the total effort on the left, our team velocity on the right. But look what else this simple graphs gives us.
+
+* Work done each iteration
+* Work remaining
+* Work done so far
+* When we can expect to be done
+
+
+
