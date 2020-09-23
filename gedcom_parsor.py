@@ -12,15 +12,13 @@ def ged_reader(path):
         print("Cannot open {}".format(path))
     else:
         all_lines = fp.readlines()
-        fp = open(path, 'w')
+        fp = open('/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/output.txt', 'w')
 
         for line in all_lines[2:]:
             line = line.rstrip('\n')
-            print("--> " + line)
             fp.write("--> " + line + '\n')
             line_lst = line.split(' ', 2)
             line_str = check_item(line_lst)
-            print("<-- " + line_str)
             fp.write("<-- " + line_str + '\n')
         fp.close()
 
