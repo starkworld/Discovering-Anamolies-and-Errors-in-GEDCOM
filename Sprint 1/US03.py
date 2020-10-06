@@ -1,7 +1,7 @@
 """
 Author: Nikhil Kalyan
 Time: 04 Oct, 202o 6:48PM
-Implementing user story 3 which is
+Implementing user story 3 which is children birth that happened before spouse death
 """
 import unittest
 from datetime import datetime
