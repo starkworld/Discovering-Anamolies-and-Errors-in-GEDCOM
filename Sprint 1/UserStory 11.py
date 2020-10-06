@@ -4,10 +4,18 @@
     Written each test case at one time and ran code and again rerun for other test cases as follows """
 
 import unittest
+<<<<<<< HEAD
 from typing import List, Dict
 
 
 def checkBigamy(family: Dict):
+=======
+from typing import List, Dict, TextIO
+import sys
+
+
+def checkBigamy(family: Dict, file: TextIO):
+>>>>>>> origin/first
     """Method that checks bigamy in the given gedcom data if yes then it pops and update data with no bigamy"""
     for f in family:
         if 'HUSB' in family[f]:
@@ -29,6 +37,7 @@ def checkBigamy(family: Dict):
                         wife_count += 1
             else:
                 continue
+<<<<<<< HEAD
             # if husb_count > 1:
             #     """if bigamy occurs, remove both instances of a spouse"""
             #     
@@ -41,6 +50,25 @@ def checkBigamy(family: Dict):
             #     break
 
 
+=======
+            if husb_count > 1:
+                """if bigamy occurs, remove both instances of a spouse"""
+                file.write("ERROR US11: Marriage should not occur during marriage to another spouse\n")
+                fam.pop(hus_id, None)
+                indi.pop(hus_id, None)
+                break
+            if wife_count > 1:
+                file.write("ERROR US11: Marriage should not occur during marriage to another spouse\n")
+                fam.pop(hus_id, None)
+                indi.pop(hus_id, None)
+                break
+
+
+def popped(lst: str):
+    """Method takes list as argument pops value from list if list value is bigamy"""
+    fam.pop(lst, None)
+    indi.pop(lst, None)
+>>>>>>> origin/first
 
 
 # No Bigamy
@@ -90,6 +118,7 @@ class gedComTestCases(unittest.TestCase):
     """Unit test suite"""
     def test_checkBigamy(self):
         """Test cases for bigamy"""
+<<<<<<< HEAD
         checkBigamy(fam)
         self.assertTrue(('I01' in indi))
         self.assertTrue(('I01' == fam['F23']['HUSB']))
@@ -99,6 +128,19 @@ class gedComTestCases(unittest.TestCase):
         checkBigamy(fam3)
         self.assertTrue(('I07' in indi3))
         self.assertTrue(('WIFE' in fam3['F23']))
+=======
+        file = open("output1.txt", "a+")
+        checkBigamy(fam, file)
+        self.assertTrue(('I01' in indi))
+        self.assertTrue(('I01' == fam['F23']['HUSB']))
+        checkBigamy(fam2, file)
+        self.assertTrue(('I01' in indi2))
+        self.assertTrue(('I01' in fam2['F23']['HUSB']))
+        checkBigamy(fam3, file)
+        self.assertTrue(('I07' in indi3))
+        self.assertTrue(('WIFE' in fam3['F23']))
+        file.close()
+>>>>>>> origin/first
 
 
 if __name__ == "__main__":
