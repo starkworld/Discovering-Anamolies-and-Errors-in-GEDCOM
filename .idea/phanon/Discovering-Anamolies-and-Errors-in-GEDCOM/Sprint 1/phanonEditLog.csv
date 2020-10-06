@@ -1,0 +1,516 @@
+"e","""""""Author: Nikhil Kalyan
+    Date: Sunday Sep 27, 2020 9:00 PM
+    The following file contains User Story 11 of sprint 1 which used to find if there is ant bigamy in GedCom file
+    Written each test case at one time and ran code and again rerun for other test cases as follows """"""
+
+import unittest
+from typing import List, Dict, TextIO
+import sys
+
+
+def checkBigamy(family: Dict, file: TextIO):
+    """"""Method that checks bigamy in the given gedcom data if yes then it pops and update data with no bigamy""""""
+    for f in family:
+        if 'HUSB' in family[f]:
+            hus_id = family[f]['HUSB']
+            if 'WIFE' in family[f]:
+                wife_id = family[f]['WIFE']
+
+        wife_count = 0
+        husb_count = 0
+
+        for f in family:
+            if 'HUSB' in family[f]:
+                hus_id2: List = family[f]['HUSB']
+                if hus_id == hus_id2:
+                    husb_count += 1
+                if 'WIFE' in family[f]:
+                    wife_id2: List = family[f]['WIFE']
+                    if wife_id == wife_id2:
+                        wife_count += 1
+            else:
+                continue
+            if husb_count > 1:
+                """"""if bigamy occurs, remove both instances of a spouse""""""
+                file.write(""ERROR US11: Marriage should not occur during marriage to another spouse\n"")
+                fami.pop(hus_id, None)
+                indi.pop(hus_id, None)
+                break
+            if wife_count > 1:
+                file.write(""ERROR US11: Marriage should not occur during marriage to another spouse\n"")
+                fam.pop(hus_id, None)
+                indi.pop(hus_id, None)
+                break
+
+
+def popped(lst: str):
+    """"""Method takes list as argument pops value from list if list value is bigamy""""""
+    fam.pop(lst, None)
+    indi.pop(lst, None)
+
+
+# No Bigamy
+fam = {'F23':
+           {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+       'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
+
+indi = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23',
+                'DEAT': '31 DEC 2013'},
+        'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
+        'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+        'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+        'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+        'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+        'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
+
+# bigamy (same husband)
+fam2 = {'F23':
+            {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+        'F16': {'fam': 'F16', 'MARR': '12 DEC 2007', 'HUSB': 'I01'}}
+
+indi2 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23',
+                 'DEAT': '31 DEC 2013'},
+         'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
+         'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+         'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+         'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+         'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+         'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
+
+# bigamy (same wife)
+fam3 = {'F23': 
+            {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19', 'I26', 'I30']},
+        'F16': {'fam': 'F16', 'MARR': '12 DEC 2007', 'WIFE': 'I07'}}
+
+indi3 = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23',
+                 'DEAT': '31 DEC 2013'},
+         'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F', 'family': 'F23'},
+         'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+         'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+         'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
+         'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
+         'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'}}
+
+
+class gedComTestCases(unittest.TestCase):
+    """"""Unit test suite""""""
+    def test_checkBigamy(self):
+        """"""Test cases for bigamy""""""
+        file = open(""output1.txt"", ""a+"")
+        checkBigamy(fam, file)
+        self.assertTrue(('I01' in indi))
+        self.assertTrue(('I01' == fam['F23']['HUSB']))
+        checkBigamy(fam2, file)
+        self.assertTrue(('I01' in indi2))
+        self.assertTrue(('I01' in fam2['F23']['HUSB']))
+        checkBigamy(fam3, file)
+        self.assertTrue(('I07' in indi3))
+        self.assertTrue(('WIFE' in fam3['F23']))
+        file.close()
+
+
+if __name__ == ""__main__"":
+    """"""Main""""""
+    unittest.main(exit=True, verbosity=2)
+","","0","1601528811556","UserStory 11.py"
+"k","i",,"1363","1601528811565","UserStory 11.py"
+"a","Backspace",,,"1601528814239","UserStory 11.py"
+"e","","i","1362","1601528814249","UserStory 11.py"
+"a","Backspace",,,"1601528819226","UserStory 11.py"
+"e","","m","1361","1601528819233","UserStory 11.py"
+"a","Backspace",,,"1601528819454","UserStory 11.py"
+"e","","a","1360","1601528819459","UserStory 11.py"
+"a","Backspace",,,"1601528819891","UserStory 11.py"
+"e","","f","1359","1601528819896","UserStory 11.py"
+"e","f","","1359","1601528821350","UserStory 11.py"
+"k","f",,"1360","1601528821351","UserStory 11.py"
+"e","a","","1360","1601528821741","UserStory 11.py"
+"k","a",,"1361","1601528821753","UserStory 11.py"
+"a","Choose Lookup Item",,,"1601528823781","UserStory 11.py"
+"e","m","","1361","1601528823800","UserStory 11.py"
+"a","Paste",,,"1601582688841","UserStory12.py"
+"p","def test_checkBigamy(self):
+        """"""Test cases for bigamy""""""
+        checkBigamy(fam)
+        self.assertTrue(('I01' in indi))
+        self.assertTrue(('I01' == fam['F23']['HUSB']))
+        checkBigamy(fam2)
+        self.assertTrue(('I01' in indi2))
+        self.assertTrue(('I01' in fam2['F23']['HUSB']))
+        checkBigamy(fam3)
+        self.assertTrue(('I07' in indi3))
+        self.assertTrue(('WIFE' in fam3['F23']))",,"0","1601582688976","UserStory12.py"
+"e","def test_checkBigamy(self):
+    """"""Test cases for bigamy""""""
+    checkBigamy(fam)
+    self.assertTrue(('I01' in indi))
+    self.assertTrue(('I01' == fam['F23']['HUSB']))
+    checkBigamy(fam2)
+    self.assertTrue(('I01' in indi2))
+    self.assertTrue(('I01' in fam2['F23']['HUSB']))
+    checkBigamy(fam3)
+    self.assertTrue(('I07' in indi3))
+    self.assertTrue(('WIFE' in fam3['F23']))","","0","1601582689008","UserStory12.py"
+"a","Undo Paste",,,"1601582690423","UserStory12.py"
+"e","","def test_checkBigamy(self):
+    """"""Test cases for bigamy""""""
+    checkBigamy(fam)
+    self.assertTrue(('I01' in indi))
+    self.assertTrue(('I01' == fam['F23']['HUSB']))
+    checkBigamy(fam2)
+    self.assertTrue(('I01' in indi2))
+    self.assertTrue(('I01' in fam2['F23']['HUSB']))
+    checkBigamy(fam3)
+    self.assertTrue(('I07' in indi3))
+    self.assertTrue(('WIFE' in fam3['F23']))","0","1601582690434","UserStory12.py"
+"a","Paste",,,"1601582699880","UserStory12.py"
+"p","def us12_parents_not_2_old(self):
+        """"""
+            Fixed a bug that in for loop, it should read values instead of key-value pairs.
+            Fixed a bug that the difference between father's age and child(ren)'s age should be less than 80 instead of 60
+        """"""
+        for fam in self.Familis.values():
+            if fam.wife_id != 'N/A':
+                wife = self.getPeople(fam.wife_id)
+            if fam.hus_id != 'N/A':
+                hus = self.getPeople(fam.hus_id)
+            if fam.child_id != ['N/A']:
+                childs = list()
+                for child in fam.child_id:
+                    childs.append(self.getPeople(child))
+
+            if wife._age == ""N/A"":
+                raise TypeError(""Wife age does not exist. "")
+            if hus._age == ""N/A"":
+                raise TypeError(""Husband age does not exist. "")
+
+            for child in childs:
+                if child._age == ""N/A"":
+                    raise TypeError(""Child {id} age does not exist."".format(id=child._id))
+
+            for child in childs:
+                if (wife._age - child._age) > 60:
+                    raise TypeError(""Mother is too young or child {id} is too old!"".format(id=child._id))
+                else:
+                    return True
+                if (hus._age - child._age) > 80:
+                    raise TypeError(""Father is too young or child {id} is too old!"".format(id=child._id))
+                else:
+                    return True",,"0","1601582699890","UserStory12.py"
+"e","def us12_parents_not_2_old(self):
+    """"""
+        Fixed a bug that in for loop, it should read values instead of key-value pairs.
+        Fixed a bug that the difference between father's age and child(ren)'s age should be less than 80 instead of 60
+    """"""
+    for fam in self.Familis.values():
+        if fam.wife_id != 'N/A':
+            wife = self.getPeople(fam.wife_id)
+        if fam.hus_id != 'N/A':
+            hus = self.getPeople(fam.hus_id)
+        if fam.child_id != ['N/A']:
+            childs = list()
+            for child in fam.child_id:
+                childs.append(self.getPeople(child))
+
+        if wife._age == ""N/A"":
+            raise TypeError(""Wife age does not exist. "")
+        if hus._age == ""N/A"":
+            raise TypeError(""Husband age does not exist. "")
+
+        for child in childs:
+            if child._age == ""N/A"":
+                raise TypeError(""Child {id} age does not exist."".format(id=child._id))
+
+        for child in childs:
+            if (wife._age - child._age) > 60:
+                raise TypeError(""Mother is too young or child {id} is too old!"".format(id=child._id))
+            else:
+                return True
+            if (hus._age - child._age) > 80:
+                raise TypeError(""Father is too young or child {id} is too old!"".format(id=child._id))
+            else:
+                return True","","0","1601582699898","UserStory12.py"
+"a","Backspace",,,"1601582707271","UserStory12.py"
+"e","","f","30","1601582707307","UserStory12.py"
+"a","Backspace",,,"1601582707456","UserStory12.py"
+"e","","l","29","1601582707460","UserStory12.py"
+"a","Backspace",,,"1601582707656","UserStory12.py"
+"e","","e","28","1601582707662","UserStory12.py"
+"a","Backspace",,,"1601582708054","UserStory12.py"
+"e","","s","27","1601582708059","UserStory12.py"
+"a","Backspace",,,"1601582712153","UserStory12.py"
+"e","",".","272","1601582712161","UserStory12.py"
+"a","Backspace",,,"1601582712413","UserStory12.py"
+"e","","f","271","1601582712417","UserStory12.py"
+"a","Backspace",,,"1601582712662","UserStory12.py"
+"e","","l","270","1601582712667","UserStory12.py"
+"a","Backspace",,,"1601582712782","UserStory12.py"
+"e","","e","269","1601582712786","UserStory12.py"
+"a","Backspace",,,"1601582712989","UserStory12.py"
+"e","","s","268","1601582712995","UserStory12.py"
+"a","Enter",,,"1601582765977","UserStory12.py"
+"e","
+","","0","1601582766312","UserStory12.py"
+"a","Enter",,,"1601582766319","UserStory12.py"
+"e","
+","","0","1601582766324","UserStory12.py"
+"a","Enter",,,"1601582766359","UserStory12.py"
+"e","
+","","2","1601582766363","UserStory12.py"
+"e","f","","0","1601582768383","UserStory12.py"
+"k","f",,"1","1601582768388","UserStory12.py"
+"e","r","","1","1601582768513","UserStory12.py"
+"k","r",,"2","1601582768514","UserStory12.py"
+"e","o","","2","1601582768689","UserStory12.py"
+"k","o",,"3","1601582768693","UserStory12.py"
+"e","m","","3","1601582768901","UserStory12.py"
+"k","m",,"4","1601582768902","UserStory12.py"
+"e"," ","","4","1601582769130","UserStory12.py"
+"k"," ",,"5","1601582769131","UserStory12.py"
+"e","f","","5","1601582769442","UserStory12.py"
+"k","f",,"6","1601582769443","UserStory12.py"
+"e","a","","6","1601582769653","UserStory12.py"
+"k","a",,"7","1601582769663","UserStory12.py"
+"e","m","","7","1601582769766","UserStory12.py"
+"k","m",,"8","1601582769775","UserStory12.py"
+"a","Choose Lookup Item",,,"1601582770330","UserStory12.py"
+"e","class","","8","1601582770351","UserStory12.py"
+"e"," ","","13","1601582771366","UserStory12.py"
+"k"," ",,"14","1601582771367","UserStory12.py"
+"e","i","","14","1601582771451","UserStory12.py"
+"k","i",,"15","1601582771452","UserStory12.py"
+"e","m","","15","1601582771702","UserStory12.py"
+"k","m",,"16","1601582771710","UserStory12.py"
+"a","Choose Lookup Item",,,"1601582772279","UserStory12.py"
+"e","port","","16","1601582772293","UserStory12.py"
+"e"," ","","20","1601582772319","UserStory12.py"
+"e","f","","21","1601582773187","UserStory12.py"
+"k","f",,"22","1601582773188","UserStory12.py"
+"e","a","","22","1601582773341","UserStory12.py"
+"k","a",,"23","1601582773348","UserStory12.py"
+"e","m","","23","1601582773507","UserStory12.py"
+"k","m",,"24","1601582773513","UserStory12.py"
+"a","Choose Lookup Item",,,"1601582774227","UserStory12.py"
+"e","ilyList","","24","1601582774241","UserStory12.py"
+"a","Backspace",,,"1601582778092","UserStory12.py"
+"e","","t","30","1601582778099","UserStory12.py"
+"a","Backspace",,,"1601582778315","UserStory12.py"
+"e","","s","29","1601582778321","UserStory12.py"
+"a","Backspace",,,"1601582778532","UserStory12.py"
+"e","","i","28","1601582778536","UserStory12.py"
+"a","Backspace",,,"1601582778885","UserStory12.py"
+"e","","L","27","1601582778890","UserStory12.py"
+"a","EditorChange",,,"1601582836955","UserStory12.py"
+"a","EditorChange",,,"1601582837565","UserStory12.py"
+"a","EditorChange",,,"1601582838418","UserStory12.py"
+"a","Close Active Editor",,,"1601582839720","UserStory12.py"
+"a","Close Active Editor",,,"1601582840918","UserStory12.py"
+"a","Close Active Editor",,,"1601582842382","UserStory12.py"
+"a","EditorChange",,,"1601582844448","UserStory12.py"
+"a","EditorChange",,,"1601582845476","UserStory12.py"
+"a","Backspace",,,"1601582848498","UserStory12.py"
+"e","","y","26","1601582848504","UserStory12.py"
+"a","Backspace",,,"1601582848698","UserStory12.py"
+"e","","l","25","1601582848703","UserStory12.py"
+"a","Backspace",,,"1601582848915","UserStory12.py"
+"e","","i","24","1601582848924","UserStory12.py"
+"a","Backspace",,,"1601582849362","UserStory12.py"
+"e","","m","23","1601582849367","UserStory12.py"
+"a","Backspace",,,"1601582849596","UserStory12.py"
+"e","","a","22","1601582849600","UserStory12.py"
+"a","Backspace",,,"1601582849827","UserStory12.py"
+"e","","f","21","1601582849843","UserStory12.py"
+"e",".","","21","1601582853587","UserStory12.py"
+"k",".",,"22","1601582853588","UserStory12.py"
+"a","Backspace",,,"1601582854990","UserStory12.py"
+"e","",".","21","1601582854996","UserStory12.py"
+"a","Copy",,,"1601582880023","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582880050","User_Story01.py"
+"a","Copy",,,"1601582880248","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582880249","User_Story01.py"
+"a","Copy",,,"1601582880454","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582880455","User_Story01.py"
+"a","Copy",,,"1601582880713","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582880714","User_Story01.py"
+"a","Copy",,,"1601582881677","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582881678","User_Story01.py"
+"a","Copy",,,"1601582881861","User_Story01.py"
+"c","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"226","1601582881861","User_Story01.py"
+"a","EditorChange",,,"1601582883939","User_Story01.py"
+"a","Paste",,,"1601582890245","UserStory 11.py"
+"p","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"329","1601582890252","UserStory 11.py"
+"e","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")","","329","1601582890262","UserStory 11.py"
+"a","Undo Paste",,,"1601582894580","UserStory 11.py"
+"e","","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")","329","1601582894587","UserStory 11.py"
+"a","EditorChange",,,"1601582896474","UserStory 11.py"
+"a","Backspace",,,"1601582899817","UserStory12.py"
+"e",""," ","20","1601582899824","UserStory12.py"
+"a","Backspace",,,"1601582900399","UserStory12.py"
+"e","","t","19","1601582900405","UserStory12.py"
+"a","Backspace",,,"1601582900497","UserStory12.py"
+"e","","r","18","1601582900501","UserStory12.py"
+"a","Backspace",,,"1601582900598","UserStory12.py"
+"e","","o","17","1601582900603","UserStory12.py"
+"a","Backspace",,,"1601582900699","UserStory12.py"
+"e","","p","16","1601582900702","UserStory12.py"
+"a","Backspace",,,"1601582900825","UserStory12.py"
+"e","","m","15","1601582900829","UserStory12.py"
+"a","Backspace",,,"1601582900901","UserStory12.py"
+"e","","i","14","1601582900906","UserStory12.py"
+"a","Backspace",,,"1601582901001","UserStory12.py"
+"e",""," ","13","1601582901005","UserStory12.py"
+"a","Backspace",,,"1601582901102","UserStory12.py"
+"e","","s","12","1601582901106","UserStory12.py"
+"a","Backspace",,,"1601582901208","UserStory12.py"
+"e","","s","11","1601582901226","UserStory12.py"
+"a","Backspace",,,"1601582901302","UserStory12.py"
+"e","","a","10","1601582901306","UserStory12.py"
+"a","Backspace",,,"1601582901404","UserStory12.py"
+"e","","l","9","1601582901407","UserStory12.py"
+"a","Backspace",,,"1601582901517","UserStory12.py"
+"e","","c","8","1601582901522","UserStory12.py"
+"a","Backspace",,,"1601582901632","UserStory12.py"
+"e","","m","7","1601582901649","UserStory12.py"
+"a","Backspace",,,"1601582901709","UserStory12.py"
+"e","","a","6","1601582901715","UserStory12.py"
+"a","Backspace",,,"1601582901808","UserStory12.py"
+"e","","f","5","1601582901812","UserStory12.py"
+"a","Backspace",,,"1601582901912","UserStory12.py"
+"e",""," ","4","1601582901918","UserStory12.py"
+"a","Backspace",,,"1601582902032","UserStory12.py"
+"e","","m","3","1601582902039","UserStory12.py"
+"a","Backspace",,,"1601582902110","UserStory12.py"
+"e","","o","2","1601582902113","UserStory12.py"
+"a","Backspace",,,"1601582902210","UserStory12.py"
+"e","","r","1","1601582902213","UserStory12.py"
+"a","Backspace",,,"1601582902311","UserStory12.py"
+"e","","f","0","1601582902314","UserStory12.py"
+"a","Paste",,,"1601582903341","UserStory12.py"
+"p","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")",,"0","1601582903343","UserStory12.py"
+"e","from famclass import gedFileParse
+
+individual, family = gedFileParse(""/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged"")","","0","1601582903350","UserStory12.py"
+"a","Backspace",,,"1601582909296","UserStory12.py"
+"e","","s","420","1601582909302","UserStory12.py"
+"a","Backspace",,,"1601582909751","UserStory12.py"
+"e","","i","419","1601582909756","UserStory12.py"
+"e","i","","419","1601582913630","UserStory12.py"
+"k","i",,"420","1601582913632","UserStory12.py"
+"e","e","","420","1601582914172","UserStory12.py"
+"k","e",,"421","1601582914172","UserStory12.py"
+"e","s","","421","1601582914886","UserStory12.py"
+"k","s",,"422","1601582914887","UserStory12.py"
+"a","Backspace",,,"1601582918840","UserStory12.py"
+"e","","y","52","1601582918845","UserStory12.py"
+"e","i","","52","1601582919204","UserStory12.py"
+"k","i",,"53","1601582919205","UserStory12.py"
+"e","e","","53","1601582919387","UserStory12.py"
+"k","e",,"54","1601582919388","UserStory12.py"
+"e","s","","54","1601582919631","UserStory12.py"
+"k","s",,"55","1601582919632","UserStory12.py"
+"a","Backspace",,,"1601582924396","UserStory12.py"
+"e","","f","47","1601582924402","UserStory12.py"
+"e","F","","47","1601582925302","UserStory12.py"
+"k","F",,"48","1601582925302","UserStory12.py"
+"a","Backspace",,,"1601582936690","UserStory12.py"
+"e","",")","432","1601582936696","UserStory12.py"
+"a","Backspace",,,"1601582937270","UserStory12.py"
+"e","","(","431","1601582937273","UserStory12.py"
+"a","Backspace",,,"1601582937378","UserStory12.py"
+"e","","s","430","1601582937383","UserStory12.py"
+"a","Backspace",,,"1601582937476","UserStory12.py"
+"e","","e","429","1601582937483","UserStory12.py"
+"a","Backspace",,,"1601582937573","UserStory12.py"
+"e","","u","428","1601582937577","UserStory12.py"
+"a","Backspace",,,"1601582937692","UserStory12.py"
+"e","","l","427","1601582937696","UserStory12.py"
+"a","Backspace",,,"1601582937906","UserStory12.py"
+"e","","a","426","1601582937910","UserStory12.py"
+"a","Backspace",,,"1601582938117","UserStory12.py"
+"e","","v","425","1601582938121","UserStory12.py"
+"a","Backspace",,,"1601582938321","UserStory12.py"
+"e","",".","424","1601582938326","UserStory12.py"
+"a","Backspace",,,"1601582941632","UserStory12.py"
+"e","",".","482","1601582941638","UserStory12.py"
+"a","Backspace",,,"1601582941849","UserStory12.py"
+"e","","f","481","1601582941856","UserStory12.py"
+"a","Backspace",,,"1601582942044","UserStory12.py"
+"e","","l","480","1601582942049","UserStory12.py"
+"a","Backspace",,,"1601582942281","UserStory12.py"
+"e","","e","479","1601582942286","UserStory12.py"
+"a","Backspace",,,"1601582942585","UserStory12.py"
+"e","","s","478","1601582942589","UserStory12.py"
+"a","Move Cursor",,,"1601582949077","UserStory12.py"
+"a","Move Cursor",,,"1601582949180","UserStory12.py"
+"a","Move Cursor",,,"1601582949281","UserStory12.py"
+"a","Move Cursor",,,"1601582949386","UserStory12.py"
+"a","Move Cursor",,,"1601582949490","UserStory12.py"
+"a","Move Cursor",,,"1601582949590","UserStory12.py"
+"a","Move Cursor",,,"1601582949690","UserStory12.py"
+"a","Move Cursor",,,"1601582949794","UserStory12.py"
+"a","Move Cursor",,,"1601582949896","UserStory12.py"
+"a","Move Cursor",,,"1601582949997","UserStory12.py"
+"a","Move Cursor",,,"1601582950099","UserStory12.py"
+"a","Move Cursor",,,"1601582950199","UserStory12.py"
+"a","Move Cursor",,,"1601582950303","UserStory12.py"
+"a","Move Cursor",,,"1601582950406","UserStory12.py"
+"a","Move Cursor",,,"1601582950507","UserStory12.py"
+"a","Move Cursor",,,"1601582955835","UserStory12.py"
+"a","Move Cursor",,,"1601582955940","UserStory12.py"
+"a","Move Cursor",,,"1601582956041","UserStory12.py"
+"a","Move Cursor",,,"1601582956143","UserStory12.py"
+"a","Move Cursor",,,"1601582956246","UserStory12.py"
+"a","Backspace",,,"1601582956405","UserStory12.py"
+"e","","def us12_parents_not_2_old():
+    """"""
+        Fixed a bug that in for loop, it should read values instead of key-value pairs.
+        Fixed a bug that the difference between father's age and child(ren)'s age should be less than 80 instead of 60
+    """"""
+    for fam in Families:
+        if fam.wife_id != 'N/A':
+            wife = getPeople(fam.wife_id)
+        if fam.hus_id != 'N/A':
+            hus = self.getPeople(fam.hus_id)
+        if fam.child_id != ['N/A']:
+            childs = list()
+            for child in fam.child_id:
+                childs.append(self.getPeople(child))
+
+        if wife._age == ""N/A"":
+            raise TypeError(""Wife age does not exist. "")
+        if hus._age == ""N/A"":
+            raise TypeError(""Husband age does not exist. "")
+
+        for child in childs:
+            if child._age == ""N/A"":
+                raise TypeError(""Child {id} age does not exist."".format(id=child._id))
+
+        for child in childs:
+            if (wife._age - child._age) > 60:
+                raise TypeError(""Mother is too young or child {id} is too old!"".format(id=child._id))
+            else:
+                return True
+            if (hus._age - child._age) > 80:
+                raise TypeError(""Father is too young or child {id} is too old!"".format(id=child._id))
+            else:
+                return True","148","1601582956413","UserStory12.py"
