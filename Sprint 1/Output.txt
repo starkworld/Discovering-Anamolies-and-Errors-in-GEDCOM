@@ -6,3 +6,7 @@ ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR US03: Birth of I01 comes before their death
+ERROR US03: Birth of I01 comes before their death
+ERROR US03: Birth of I01 comes before their death
+ERROR US03: Birth of I01 comes before their death
+ERROR US03: Birth of I01 comes before their death
