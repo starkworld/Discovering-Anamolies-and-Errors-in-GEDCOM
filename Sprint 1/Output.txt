@@ -5,3 +5,4 @@ ERROR US12: Father I01 is older than their child, I19 by over 80 years
 ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR: US10 - The individual I45 was married before 14, this is invalid
 ERROR: US10 - The individual I45 was married before 14, this is invalid
+ERROR US03: Birth of I01 comes before their death
