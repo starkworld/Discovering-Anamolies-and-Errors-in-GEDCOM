@@ -4,8 +4,8 @@
     Written each test case at one time and ran code and again rerun for other test cases as follows """
 
 import unittest
+from typing import List, Dict
 from typing import List, Dict, TextIO
-import sys
 
 
 def checkBigamy(family: Dict, file: TextIO):
@@ -30,6 +30,8 @@ def checkBigamy(family: Dict, file: TextIO):
                         wife_count += 1
             else:
                 continue
+
+
             if husb_count > 1:
                 """if bigamy occurs, remove both instances of a spouse"""
                 file.write("ERROR US11: Marriage should not occur during marriage to another spouse\n")
@@ -96,6 +98,16 @@ class gedComTestCases(unittest.TestCase):
     """Unit test suite"""
     def test_checkBigamy(self):
         """Test cases for bigamy"""
+
+        checkBigamy(fam)
+        self.assertTrue(('I01' in indi))
+        self.assertTrue(('I01' == fam['F23']['HUSB']))
+        checkBigamy(fam2)
+        self.assertTrue(('I01' in indi2))
+        self.assertTrue(('I01' in fam2['F23']['HUSB']))
+        checkBigamy(fam3)
+        self.assertTrue(('I07' in indi3))
+        self.assertTrue(('WIFE' in fam3['F23']))
         file = open("output1.txt", "a+")
         checkBigamy(fam, file)
         self.assertTrue(('I01' in indi))
