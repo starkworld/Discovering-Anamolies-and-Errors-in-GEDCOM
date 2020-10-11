@@ -56,5 +56,7 @@ Apart of this here I displayed data of an each individual and families in pretty
 * Work done so far
 * When we can expect to be done
 
+Till date 6User stories are implemented in sprint 1 and code reviews are doing after completion of each user story
+
 
 
