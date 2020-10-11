@@ -2,3 +2,7 @@ ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
 ERROR US11: Marriage should not occur during marriage to another spouse
+ERROR US11: Marriage should not occur during marriage to another spouse
+ERROR US11: Marriage should not occur during marriage to another spouse
+ERROR US11: Marriage should not occur during marriage to another spouse
+ERROR US11: Marriage should not occur during marriage to another spouse
