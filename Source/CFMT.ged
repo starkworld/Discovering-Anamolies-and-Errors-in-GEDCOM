@@ -1,0 +1,356 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE My Family
+1 DATE 20 SEP 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Vijay Sharma
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Vijay /Sharma/
+2 GIVN Vijay
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX M
+1 BIRT
+2 DATE 13 MAY 1997
+2 PLAC New Delhi
+1 OCCU Software Developer
+2 PLAC Apple Inc
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Sunitha /Sharma/
+2 GIVN Sunitha
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX F
+1 BIRT
+2 DATE 9 APR 1975
+2 PLAC Surat
+1 OCCU Docter
+2 PLAC Apollo Hospitals
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Ajay /Sharma/
+2 GIVN Ajay
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX M
+1 BIRT
+2 DATE 8 MAY 1970
+2 PLAC New Delhi
+1 OCCU Software Developer
+2 PLAC Google Inc
+1 FAMS @F1@
+1 FAMS @F2@
+1 FAMC @F3@
+0 @I4@ INDI
+1 NAME Kavya /Sharma/
+2 GIVN Kavya
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX F
+1 BIRT
+2 DATE 7 MAR 1990
+2 PLAC New Delhi
+1 OCCU Engineer
+2 PLAC Tata Inc
+1 FAMS @F4@
+1 FAMS @F5@
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Sharmila /Negi/
+2 GIVN Sharmila
+2 SURN Negi
+2 _MARNM Negi
+1 SEX F
+1 BIRT
+2 DATE 5 MAR 1972
+2 PLAC Suryapet
+1 DEAT Y
+2 DATE 4 FEB 2015
+2 PLAC New Delhi
+1 BURI
+2 DATE 4 FEB 2015
+2 PLAC New Delhi
+1 OCCU Nurse
+2 PLAC Apollo Hospitals
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Suraj /Negi/
+2 GIVN Suraj
+2 SURN Negi
+2 _MARNM Negi
+1 SEX M
+1 BIRT
+2 DATE 12 OCT 1988
+2 PLAC New Delhi
+1 OCCU Engineer
+2 PLAC Jio Inc
+1 FAMS @F6@
+1 FAMC @F2@
+0 @I7@ INDI
+1 NAME Ranveer /Sharma/
+2 GIVN Ranveer
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX M
+1 BIRT
+2 DATE 11 SEP 1949
+2 PLAC New Delhi
+1 DEAT Y
+2 DATE 10 SEP 2019
+2 PLAC New Delhi
+1 BURI
+2 DATE 10 SEP 2019
+2 PLAC New Delhi
+1 OCCU University Professor
+2 PLAC Indian Institute of Technology
+1 FAMS @F3@
+1 FAMS @F7@
+0 @I8@ INDI
+1 NAME Shanti /Sharma/
+2 GIVN Shanti
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX F
+1 BIRT
+2 DATE 13 DEC 1950
+2 PLAC Noida
+1 DEAT Y
+2 DATE 16 OCT 2019
+2 PLAC New Delhi
+1 BURI
+2 DATE 17 OCT 2019
+2 PLAC New Delhi
+1 OCCU Doctorate in Psychology
+2 PLAC Indian Institute of Technology
+1 FAMS @F3@
+0 @I9@ INDI
+1 NAME Sughanda /Soorya/
+2 GIVN Sughanda
+2 SURN Soorya
+2 _MARNM Soorya
+1 SEX F
+1 BIRT
+2 DATE 6 JAN 1951
+1 FAMS @F7@
+0 @I10@ INDI
+1 NAME Ramesh /Sharma/
+2 GIVN Ramesh
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX M
+1 BIRT
+2 DATE 26 AUG 1982
+2 PLAC Surat
+1 DEAT Y
+2 DATE 17 FEB 2018
+2 PLAC New Delhi
+1 BURI
+2 DATE 17 FEB 2018
+2 PLAC New Delhi
+1 OCCU Entrepreneur
+2 PLAC Ramesh Textiles
+1 FAMS @F8@
+1 FAMS @F9@
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME Ratula /Sharma/
+2 GIVN Ratula
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX F
+1 BIRT
+2 DATE 5 MAY 1985
+2 PLAC Vijayawada
+1 OCCU Doctor
+2 PLAC Himagiri Hospitals
+1 FAMS @F8@
+0 @I12@ INDI
+1 NAME Gouri /Sharma/
+2 GIVN Gouri
+2 SURN Sharma
+2 _MARNM Sharma
+1 SEX F
+1 BIRT
+2 DATE 15 DEC 1996
+2 PLAC Noida
+1 OCCU Engineer
+2 PLAC Noctowl Technologies
+1 FAMC @F8@
+0 @I13@ INDI
+1 NAME Soumya /Sakari/
+2 GIVN Soumya
+2 SURN Sakari
+2 _MARNM Sakari
+1 SEX F
+1 BIRT
+2 DATE 22 JUN 1984
+2 PLAC Chennai
+1 OCCU Political Leader
+2 PLAC BJP
+1 FAMS @F9@
+1 FAMS @F10@
+0 @I14@ INDI
+1 NAME Sanket /Sakari/
+2 GIVN Sanket
+2 SURN Sakari
+2 _MARNM Sakari
+1 SEX M
+1 BIRT
+2 DATE 4 JUL 1980
+2 PLAC Chennai
+1 OCCU Member of Legislative Assembly
+2 PLAC GOvernment
+1 FAMS @F10@
+0 @I15@ INDI
+1 NAME Rahul /Sakari/
+2 GIVN Rahul
+2 SURN Sakari
+2 _MARNM Sakari
+1 SEX M
+1 BIRT
+2 DATE 8 JUL 1999
+2 PLAC Chennai
+1 OCCU Student
+2 PLAC None
+1 FAMC @F10@
+0 @I16@ INDI
+1 NAME Vibhav /Matam/
+2 GIVN Vibhav
+2 SURN Matam
+2 _MARNM Matam
+1 SEX M
+1 BIRT
+2 DATE 6 OCT 1989
+2 PLAC Hyderabad
+1 OCCU Aerospace Engineer
+2 PLAC ISRO
+1 FAMS @F4@
+0 @I17@ INDI
+1 NAME Sujit /Matam/
+2 GIVN Sujit
+2 SURN Matam
+2 _MARNM Matam
+1 SEX M
+1 BIRT
+2 DATE 13 MAR 2018
+2 PLAC Bhopal
+1 OCCU Toddler
+2 PLAC None
+1 FAMC @F4@
+0 @I18@ INDI
+1 NAME Prachi /Negi/
+2 GIVN Prachi
+2 SURN Negi
+2 _MARNM Negi
+1 SEX F
+1 BIRT
+2 DATE 9 AUG 1990
+2 PLAC Bangalore
+1 OCCU Electrical Engineer
+2 PLAC Toshibha Power Ltd
+1 FAMS @F6@
+0 @I19@ INDI
+1 NAME Shiv /Negi/
+2 GIVN Shiv
+2 SURN Negi
+2 _MARNM Negi
+1 SEX M
+1 BIRT
+2 DATE 19 JUN 2016
+2 PLAC Hyderabad
+1 OCCU Kid
+2 PLAC None
+1 FAMC @F6@
+0 @F1@ FAM
+1 HUSB @I3@
+1 WIFE @I2@
+1 CHIL @I1@
+1 CHIL @I4@
+1 MARR
+2 DATE 4 APR 1995
+2 PLAC Bangalore
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I5@
+1 CHIL @I6@
+1 EVEN
+2 TYPE Relationship
+2 DATE 19 APR 1992
+1 EVEN
+2 TYPE Ending
+2 DATE 18 NOV 1994
+1 _CURRENT N
+0 @F3@ FAM
+1 HUSB @I7@
+1 WIFE @I8@
+1 CHIL @I3@
+1 CHIL @I10@
+1 MARR
+2 DATE 9 MAY 1965
+2 PLAC Delhi
+1 _CURRENT Y
+0 @F4@ FAM
+1 HUSB @I16@
+1 WIFE @I4@
+1 CHIL @I17@
+1 MARR
+2 DATE 17 SEP 2015
+2 PLAC Bangalore
+1 _CURRENT Y
+0 @F5@ FAM
+1 WIFE @I4@
+1 _CURRENT N
+0 @F6@ FAM
+1 HUSB @I6@
+1 WIFE @I18@
+1 CHIL @I19@
+1 MARR
+2 DATE 6 JUL 2014
+2 PLAC Delhi
+1 _CURRENT Y
+0 @F7@ FAM
+1 HUSB @I7@
+1 WIFE @I9@
+1 MARR
+2 DATE 3 MAR 1963
+2 PLAC Noida
+1 DIV
+2 DATE 12 JAN 1965
+1 _CURRENT N
+0 @F8@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 CHIL @I12@
+1 MARR
+2 DATE 11 MAY 2001
+2 PLAC Delhi
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
+0 @F9@ FAM
+1 HUSB @I10@
+1 WIFE @I13@
+1 MARR
+2 DATE 8 APR 2005
+2 PLAC Chennai
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
+0 @F10@ FAM
+1 HUSB @I14@
+1 WIFE @I13@
+1 CHIL @I15@
+1 EVEN
+2 TYPE Relationship
+2 DATE 12 JUL 2010
+1 _CURRENT Y
+0 TRLR
