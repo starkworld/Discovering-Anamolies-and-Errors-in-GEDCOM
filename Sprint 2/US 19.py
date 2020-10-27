@@ -1,8 +1,8 @@
 import unittest
 from typing import List
 
-from gedcom_parsor import findParents, checkIfSiblings
-from famclass import gedFileParse
+from Source.gedcom_parsor import findParents, checkIfSiblings
+from Source.famclass import gedFileParse
 
 individual, families = gedFileParse("/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged")
 

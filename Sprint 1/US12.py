@@ -8,7 +8,7 @@ import unittest
 from datetime import datetime
 from typing import Dict, TextIO, Union
 
-from famclass import gedFileParse
+from Source.famclass import gedFileParse
 
 individual, Families = gedFileParse("/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged")
 
