@@ -1,10 +1,13 @@
 """Author: Nikhil Kalyan
     Date: Sunday Sep 27, 2020 9:00 PM
     The following file contains User Story 11 of sprint 1 which used to find if there is ant bigamy in GedCom file
-    Written each test case at one time and ran code and again rerun for other test cases as follows """
+    Written each test case at one time and ran code and again rerun for other test cases as follows
+     BadeSmell 1: Nested Loops in checkBigamy
+     BadSemll 2: Unwanted Parameters supply i.e file
+     BadSmell 3: Writing output
+     BadSmell 4: Methods that are not very much used or helpful i.e popped()"""
 
 import unittest
-from typing import List, Dict
 from typing import List, Dict, TextIO
 
 

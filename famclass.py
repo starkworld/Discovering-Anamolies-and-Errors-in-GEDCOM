@@ -124,9 +124,10 @@ def prettyPrint(individual: List[str], family: List) -> None:
 def main() -> None:
     """Main function calls the all methods"""
     individual, family = gedFileParse("/Users/nikhilkalyan/Discovering-Anamolies-and-Errors-in-GEDCOM/CFMT.ged")
+    print(individual)
     individual.sort()
     family.sort()
-    prettyPrint(individual, family)
+    # prettyPrint(individual, family)
 
 
 if __name__ == '__main__':
