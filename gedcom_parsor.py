@@ -77,7 +77,7 @@ def to_str(lst):
 def findParents(id: int, listFam: List) -> str:
     found: str = ""
     for fam in listFam:
-        if id in fam.chil:
+        if id in fam[-1:]:
             found: str = fam
             break
     return found
@@ -85,32 +85,33 @@ def findParents(id: int, listFam: List) -> str:
 
 def checkIfSiblings(fam1: List, fam2: List, listFam: List) -> bool:
     """just makes sure siblings aren't married, if they are return false"""
-    if fam1.id == fam2.id:
+    if fam1[0] == fam2[0]:
         return False
-    husb1fam: str = findParents(fam1.husb, listFam)
-    husb2fam: str = findParents(fam2.husb, listFam)
-    wife1fam: str = findParents(fam1.wife, listFam)
-    wife2fam: str = findParents(fam2.wife, listFam)
+    husb1fam: str = findParents(fam1[1], listFam)
+    husb2fam: str = findParents(fam2[1], listFam)
+    wife1fam: str = findParents(fam1[2], listFam)
+    wife2fam: str = findParents(fam2[2], listFam)
 
     if husb1fam:
         if husb2fam:
-            if husb1fam.id == husb2fam.id:
+            if husb1fam[0] == husb2fam[0]:
                 return True
         elif wife2fam:
-            if husb1fam.id == wife2fam.id:
+            if husb1fam[0] == wife2fam[0]:
                 return True
     elif wife1fam:
         if husb2fam:
-            if wife1fam.id == husb2fam.id:
+            if wife1fam[0] == husb2fam[0]:
                 return True
         elif wife2fam:
-            if wife1fam.id == wife2fam.id:
+            if wife1fam[0] == wife2fam[0]:
                 return True
 
     return False
 
+
 def main():
-    "Main method call all the functions"
+    """Main method call all the functions"""
     path = input("Enter path:")
     ged_reader(path)
 

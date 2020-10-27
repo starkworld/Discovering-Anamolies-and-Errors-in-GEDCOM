@@ -5,7 +5,7 @@
     Viewing family info"""
 
 from prettytable import PrettyTable
-from typing import List, Tuple, TextIO, Optional
+from typing import List, Tuple, TextIO
 
 
 def familyList() -> List[int]:

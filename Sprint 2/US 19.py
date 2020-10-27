@@ -16,9 +16,9 @@ def firstCousinShouldNotMarry() -> List:
     individualError: List = []
 
     for fam in listFam:
-        if fam.husb != 'NA' and fam.wife != 'NA':
-            husbParents: str = findParents(fam.husb, listFam)
-            wifeParents: str = findParents(fam.wife, listFam)
+        if fam[1] != 'NA' and fam[2] != 'NA':
+            husbParents: str = findParents(fam[1], listFam)
+            wifeParents: str = findParents(fam[2], listFam)
             if husbParents and wifeParents:
                 siblings: bool = checkIfSiblings(husbParents, wifeParents, listFam)
                 if siblings:
@@ -35,3 +35,7 @@ class TestApp(unittest.TestCase):
                 "ERROR: FAMILY: US19: In Family id " + fam.id + " Husband " + fam.husb + "Married to first cousin, "
                                                                                          "Wife " + fam.wife)
         self.assertTrue(len(errorList) == 0, "US19: No first cousins are married!")
+
+
+if __name__ == '__main__':
+    unittest.main(exit=False, verbosity=2)

@@ -12,9 +12,9 @@ def auntsAndUncle() -> List:
 
     individualError: List = []
     for fam in listFam:
-        if fam.husb != 'NA' and fam.wife != 'NA':
-            husbParents: str = findParents(fam.husb, listFam)
-            wifeParents: str = findParents(fam.wife, listFam)
+        if fam[1] != 'NA' and fam[2] != 'NA':
+            husbParents: str = findParents(fam[1], listFam)
+            wifeParents: str = findParents(fam[2], listFam)
             if husbParents and wifeParents:
                 hSiblings: bool = checkIfSiblings(husbParents, fam, listFam)
                 wSiblings: bool = checkIfSiblings(wifeParents, fam, listFam)
