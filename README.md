@@ -58,5 +58,12 @@ Apart of this here I displayed data of an each individual and families in pretty
 
 Till date 6User stories are implemented in sprint 1 and code reviews are doing after completion of each user story
 
+* Sprint 1 is completed and took 15days to complete all user stories and code reviews and fixes are been done
+
+#### Sprint 2
+* Sprint two plaaning is taken place and started working on sprint 2:
+##### BurnDown Chart
+![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Burndown.png)
+
 
 
