@@ -65,5 +65,7 @@ Till date 6User stories are implemented in sprint 1 and code reviews are doing a
 ##### BurnDown Chart
 ![Alt text](https://github.com/starkworld/Discovering-Anamolies-and-Errors-in-GEDCOM/blob/master/images/Burndown.png)
 
+Sprint 3:
+
 
 
